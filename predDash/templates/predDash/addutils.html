@@ -1,0 +1,37 @@
+{%extends 'base.html'%} 
+{% block content %}
+
+<main class="overflow-y-auto h-full" x-data="{ 'showModal': false }" @keydown.escape="showModal = false" x-cloak>
+    <div class="container grid px-6 mx-auto">
+
+
+        <form class="w-full" method="POST">
+            {% csrf_token %}
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+                Add Lab Results
+            </h2>
+            <div class="flex flex-wrap -mx-3 mb-6">
+
+                {% if form %}
+
+                {% for field in form %}
+                <div class="px-3 my-4 mb-6 md:w-1/2 md:mb-0">
+                    <label for="first-name" class="block my-2 text-sm font-medium text-gray-700">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+
+                <button
+                    class="py-3 my-6 w-full font-semibold text-blue-700 bg-transparent rounded border border-blue-500 hover:bg-blue-500 hover:text-white hover:border-transparent">
+                    Submit
+                </button>
+
+                {% endif %}
+            </div>
+        </form>
+
+
+        {% endblock %}
+    </div>
+</main>
