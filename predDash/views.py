@@ -88,7 +88,7 @@ def addUtils(request):
             form.save()
             pred_value = AnalysisDeets.objects.all().get(patient_id= form.cleaned_data['patient_id'])
             df = pd.DataFrame([form.cleaned_data])
-            df.drop(["patient_id","prediction"], axis=1, inplace=True)
+            df.drop(["patient_id"], axis=1, inplace=True)
           
             #Loading the model
             x=loadModel()

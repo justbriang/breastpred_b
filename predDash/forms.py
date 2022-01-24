@@ -32,6 +32,7 @@ class AnalysisDeets_Form(ModelForm):
     class Meta:
         model = AnalysisDeets
         fields = '__all__'
+        exclude=('prediction',)
     def __init__(self, *args, **kwargs):
         super(AnalysisDeets_Form, self).__init__(*args, **kwargs)
         for field in self.fields:
